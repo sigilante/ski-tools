@@ -91,4 +91,4 @@ python3 -m unittest discover -s tests
 
 ## Licence
 
-MIT; see `LICENSE`. The renderers in `skispiral.py` are ported from `artifact-metacircular-ski` (MIT, Copyright (c) 2026 N. E. Davis).
+MIT; see `LICENSE`.

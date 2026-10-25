@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+# skidiag outputs
+*.txt
+*.svg
+*.pdf
+*.dot
+*.tex
+*.aux
+*.log
+!examples/*.ski

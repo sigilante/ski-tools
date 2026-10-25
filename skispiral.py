@@ -5,7 +5,8 @@
 
 The renderers are those of the SKI self-interpretation paper's artifact
 (sigilante/artifact-metacircular-ski, figures.py), ported to skidiag's
-terms; on the same term they write the same SVG.
+terms; on the same term they write the same SVG. That code is
+Copyright (c) 2026 N. E. Davis, under the MIT License.
 
 Spiral construction: start at the root heading up with length L = 10. At
 each application, draw the function edge (green) at heading +25 deg with

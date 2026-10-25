@@ -1,6 +1,6 @@
 # ski-tools
 
-Small tools for reading and presenting SKI combinator terms.
+Small tools for reading and presenting SKI combinator terms. Both read the same input syntax (see skidiag's Input).
 
 ## skidiag: application-tree diagrams
 
@@ -61,6 +61,27 @@ For an output stem `OUT` (by default, the term file's name without its extension
 ### Requirements
 
 Python 3.8 or later, standard library only. `rsvg-convert` (PDF) and Graphviz `dot` (the DAG) are optional.
+
+## skispiral: spiral and disc figures
+
+`skispiral.py` draws a term in the typed-leaf notation of the SKI self-interpretation paper. Its renderers are ported from that paper's artifact (`sigilante/artifact-metacircular-ski`, `figures.py`). On a 990-leaf term, the five figures it writes match `figures.py`'s output line for line, apart from titles.
+
+```
+python3 skispiral.py term.ski [-o OUT] [--min-size N] [--prune X]
+```
+
+- **Spiral.** Function edges are green and turn 25° left at full length. Argument edges are blue and turn 65° right at 0.55 of the length. `S` is a filled circle, `K` a filled square, `I` a ring and a variable a grey triangle. Subtrees whose edge would be shorter than `--prune` (default 0.02) are omitted, so the spiral shows a term's overall shape. The tool reports how many leaves it drew.
+- **Disc.** Every atom is drawn. A leaf's angle is its left-to-right position, and its radius is its depth.
+
+| File | Contents |
+|---|---|
+| `OUT-spiral.svg` | the spiral |
+| `OUT-disc.svg` | the disc |
+| `OUT-pair.svg` | the two side by side, as in the paper |
+| `OUT-parts.svg` | each shared subterm as a spiral, named as `skidiag` names them; written only if any qualify |
+| `OUT-parts-disc.svg` | the same subterms as discs |
+
+It also writes a PDF of each, if `rsvg-convert` is installed. Each panel in a strip is scaled to fill its cell, so leaf sizes can't be compared across panels.
 
 ## Tests
 
